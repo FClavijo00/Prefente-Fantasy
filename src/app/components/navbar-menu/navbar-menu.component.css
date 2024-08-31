@@ -1,0 +1,8 @@
+.nav-buttons {
+    color: white;
+    
+    &:hover {
+        background-color: #4b5563 ;
+        color: white;
+    }
+}

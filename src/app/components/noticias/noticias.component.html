@@ -1,0 +1,31 @@
+<div class="flex flex-col justify-center">
+    <div class="flex justify-center">
+        <div class="w-full max-w-2xl bg-gray-900 border-width-1 border-gray-800 rounded-lg shadow sm:p-6">
+            <div
+                class="flex flex-col items-center justify-center pb-4 border-b-1 border-x-0 border-t-0 border-b-gray-700">
+                <h5 class="text-xl font-bold leading-none text-white">
+                    NOTICIAS PREFERENTE FANTASY
+                </h5>
+                <h5 class="text-sm truncate font-bold leading-none text-gray-300">
+                    Segunda Andaluza Jaén - Grupo 2
+                </h5>
+            </div>
+            <div class="espacio-noticias pt-4">
+                <div *ngFor="let noticia of noticiasFromData">
+                    <a href="{{ noticia.url }}" target="_blank"
+                        class="mb-3 flex flex-col items-center border-width-1 rounded-lg shadow md:flex-row border-gray-700 bg-gray-800 hover:bg-gray-700">
+                        <img class="imagenes-noticias" src="{{ noticia.urlImagen }}" alt="" />
+                        <div class="flex flex-col justify-between py-3 px-4 leading-normal">
+                            <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-200">
+                                {{ noticia.titulo }}
+                            </h5>
+                            <p class="mb-3 font-normal text-gray-400">
+                                {{ noticia.fechaPublicacion | date : 'mediumDate' }} - por {{ noticia.autor }}
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

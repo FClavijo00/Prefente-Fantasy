@@ -1,0 +1,8 @@
+.imagenes-noticias {
+    height: 8.5rem;
+    width: 8em;
+    object-fit: cover;
+    /* object-position: center; */
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
