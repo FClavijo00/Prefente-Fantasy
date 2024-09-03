@@ -1,1 +1,57 @@
-<p>clasificacion works!</p>
+<div class="bg-gray-800 min-h-screen">
+    <div class="flex justify-center items-center px-4 pt-4">
+        <form>
+            <select id="countries"
+                class="bg-gray-800 border border-gray-300 text-gray-200 text-sm rounded-lg focus:ring-green-800 focus:border-green-800 block w-full p-2.5 min-w-56">
+                <option selected>TODAS</option>
+                <option value="J5">Jornada 5</option>
+                <option value="J4">Jornada 4</option>
+                <option value="J3">Jornada 3</option>
+                <option value="J2">Jornada 2</option>
+                <option value="J1">Jornada 1</option>
+            </select>
+        </form>
+    </div>
+    <div id="clasificacion-jugadores" class="p-4">
+        <div class="flex justify-center">
+            <div class="w-full max-w-2xl bg-gray-900 border-width-1 border-gray-800 rounded-lg shadow sm:p-6">
+                <div class="flow-root">
+                    <ul class="max-w-full divide-y divide-gray-700">
+                        <li class="py-3 sm:py-4" *ngFor="let usuario of usuarios; let i = index">
+                            <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                                <div class="flex-shrink-0">
+                                    <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                        <fa-icon *ngIf="usuario.posicion === 'up'" [icon]="arrowUpIcon" class="mr-1 text-green-500"></fa-icon>
+                                        <fa-icon *ngIf="usuario.posicion === 'equal'" [icon]="minusIcon" class="mr-1 text-gray-500"></fa-icon>
+                                        <fa-icon *ngIf="usuario.posicion === 'down'" [icon]="arrowDownIcon" class="mr-1 text-red-500"></fa-icon>
+                                        {{i + 1}}
+                                    </p>
+                                </div>
+                                <div class="flex-shrink-0">
+                                    <img class="w-12 h-12 rounded-full border-width-1 border-gray-700"
+                                        src="{{usuario.urlImagen}}" alt="{{usuario.nombre}} Profile Image">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                        {{usuario.nombre}}
+                                    </p>
+                                    <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                        <fa-icon [icon]="moneyIcon" class="mr-1"></fa-icon> {{usuario.dinero}}
+                                    </p>
+                                </div>
+                                <div
+                                    class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                    {{usuario.puntos}} puntos
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="noticias" class="pt-0 px-4 pb-4">
+
+    </div>
+</div>
