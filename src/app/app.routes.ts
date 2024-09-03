@@ -4,6 +4,7 @@ import { ClasificacionComponent } from './pages/clasificacion/clasificacion.comp
 import { EquipoComponent } from './pages/equipo/equipo.component';
 import { MercadoComponent } from './pages/mercado/mercado.component';
 import { ActividadComponent } from './pages/actividad/actividad.component';
+import { PlantillasComponent } from './pages/plantillas/plantillas.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -11,5 +12,6 @@ export const routes: Routes = [
     { path: 'clasificacion', component: ClasificacionComponent },
     { path: 'equipo', component: EquipoComponent },
     { path: 'mercado', component: MercadoComponent },
+    { path: 'plantillas', component: PlantillasComponent },
     { path: 'actividad', component: ActividadComponent }
 ];
