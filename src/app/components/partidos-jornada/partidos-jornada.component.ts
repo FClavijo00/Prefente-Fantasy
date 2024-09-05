@@ -22,6 +22,9 @@ export class PartidosJornadaComponent {
 
   public jornadasModal = jornadas;
   public jornadaSeleccionada: Jornada | undefined;
+  public jornadaActual: number = 1;
+  public jornadaActualArray: Jornada | undefined;
+
 
   verMasJornadas(content: any) {
     this._modalService.open(
@@ -36,7 +39,9 @@ export class PartidosJornadaComponent {
   }
 
   ngOnInit() {
-    this.selectJornada(1);
+    this.selectJornada(this.jornadaActual);
+    this.jornadaActualArray = jornadas.find(jornada => jornada.numero === this.jornadaActual);
+
   }
 
 }
