@@ -11,19 +11,22 @@
                 </h5>
             </div>
             <div class="espacio-noticias pt-4">
-                <div *ngFor="let noticia of noticiasFromData">
-                    <a href="{{ noticia.url }}" target="_blank"
-                        class="mb-3 flex flex-col items-center border-width-1 rounded-lg shadow md:flex-row border-gray-700 bg-gray-800 hover:bg-gray-700">
-                        <img class="imagenes-noticias" src="{{ noticia.urlImagen }}" alt="" />
-                        <div class="flex flex-col justify-between py-3 px-4 leading-normal">
-                            <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-200">
-                                {{ noticia.titulo }}
-                            </h5>
-                            <p class="mb-3 font-normal text-gray-400">
-                                {{ noticia.fechaPublicacion | date : 'mediumDate' }} - por {{ noticia.autor }}
-                            </p>
-                        </div>
-                    </a>
+                <div class="noticias-container overflow-y-auto max-h-96">
+                    <div *ngFor="let noticia of noticiasFromData">
+                        <a href="{{ noticia.url }}" target="_blank"
+                            class="mb-3 flex flex-col items-center border-width-1 rounded-lg shadow md:flex-row border-gray-700 bg-gray-800 hover:bg-gray-700">
+                            <img class="imagenes-noticias" src="{{ noticia.urlImagen }}" alt="" />
+                            <div class="flex flex-col justify-between py-3 px-4 leading-normal">
+                                <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-200">
+                                    {{ noticia.titulo }}
+                                </h5>
+                                <p class="mb-3 font-normal text-gray-400">
+                                    {{ noticia.fechaPublicacion | date : "mediumDate" }} - por
+                                    {{ noticia.autor }}
+                                </p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

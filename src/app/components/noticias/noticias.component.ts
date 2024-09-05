@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { noticias } from '../../data/noticias';
 import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'noticias',
   standalone: true,
