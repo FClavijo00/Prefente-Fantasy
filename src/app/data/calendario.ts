@@ -62,15 +62,26 @@ const jornadas: Jornada[] = [
                 escudoVisitante: '/assets/escudos/mogon-cf.png'
             },
             {
-                descansa: true,
-                equipoLocal: 'Jódar CF',
-                escudoLocal: '/assets/escudos/jodar-cf.png'
+                fecha: 'Domingo 15 Sept.',
+                hora: '-:-',
+                equipoLocal: 'CD Sorihuela',
+                escudoLocal: '/assets/escudos/cd-sorihuela.png',
+                equipoVisitante: 'Jódar CF',
+                escudoVisitante: '/assets/escudos/jodar-cf.png'
             }
         ]
     },
     {
         numero: 2,
         partidos : [
+            {
+                fecha: 'Domingo 22 Sept.',
+                hora: '-:-',
+                equipoLocal: 'CF Arroyo del Ojanco',
+                escudoLocal: '/assets/escudos/cf-arroyo.png',
+                equipoVisitante: 'CD Sorihuela',
+                escudoVisitante: '/assets/escudos/cd-sorihuela.png'
+            },
             {
                 fecha: 'Domingo 22 Sept.',
                 hora: '-:-',
@@ -110,11 +121,6 @@ const jornadas: Jornada[] = [
                 equipoVisitante: 'CD Úbeda Rapids',
                 escudoLocal: '/assets/escudos/jodar-cf.png',
                 escudoVisitante: '/assets/escudos/cd-ubeda-rapids.png'
-            },
-            {
-                descansa: true,
-                equipoLocal: 'CF Arroyo del Ojanco',
-                escudoLocal: '/assets/escudos/cf-arroyo.png'
             }
         ]
     },
@@ -162,9 +168,12 @@ const jornadas: Jornada[] = [
                 escudoVisitante: '/assets/escudos/huesa-ud.png'
             },
             {
-                descansa: true,
-                equipoLocal: 'CD Úbeda Rapids',
-                escudoLocal: '/assets/escudos/cd-ubeda-rapids.png'
+                fecha: 'Domingo 29 Sept.',
+                hora: '-:-',
+                equipoLocal: 'CD Sorihuela',
+                escudoLocal: '/assets/escudos/cd-sorihuela.png',
+                equipoVisitante: 'CD Úbeda Rapids',
+                escudoVisitante: '/assets/escudos/cd-ubeda-rapids.png'
             }
         ]
     },
@@ -178,6 +187,14 @@ const jornadas: Jornada[] = [
                 equipoVisitante: 'CD Tugia Juego Limpio',
                 escudoLocal: '/assets/escudos/jodar-cf.png',
                 escudoVisitante: '/assets/escudos/cd-tugia.png'
+            },
+            {
+                fecha: 'Domingo 6 Oct.',
+                hora: '-:-',
+                equipoLocal: 'CD Castellar Íbero',
+                escudoLocal: '/assets/escudos/cd-castellar-ibero.png',
+                equipoVisitante: 'CD Sorihuela',
+                escudoVisitante: '/assets/escudos/cd-sorihuela.png'
             },
             {
                 fecha: 'Domingo 6 Oct.',
@@ -211,11 +228,7 @@ const jornadas: Jornada[] = [
                 escudoLocal: '/assets/escudos/cd-ubeda-rapids.png',
                 escudoVisitante: '/assets/escudos/cd-torreperogil.png'
             },
-            {
-                descansa: true,
-                equipoLocal: 'CD Castellar Íbero',
-                escudoLocal: '/assets/escudos/cd-castellar-ibero.png'
-            }
+           
         ]
     },
     {
@@ -256,15 +269,18 @@ const jornadas: Jornada[] = [
             {
                 fecha: 'Domingo 13 Oct.',
                 hora: '-:-',
+                equipoLocal: 'CD Sorihuela',
+                escudoLocal: '/assets/escudos/cd-sorihuela.png',
+                equipoVisitante: 'CD Torreperogil B',
+                escudoVisitante: '/assets/escudos/cd-torreperogil.png'
+            },
+            {
+                fecha: 'Domingo 13 Oct.',
+                hora: '-:-',
                 equipoLocal: 'Arquillos CF',
                 equipoVisitante: 'CD Canena Atlético',
                 escudoLocal: '/assets/escudos/arquillos-cf.png',
                 escudoVisitante: '/assets/escudos/canena-atco.png'
-            },
-            {
-                descansa: true,
-                equipoLocal: 'CD Torreperogil B',
-                escudoLocal: '/assets/escudos/cd-torreperogil.png'
             }
         ]
     }
