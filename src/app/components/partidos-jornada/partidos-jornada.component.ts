@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { NgbModal, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { Jornada, jornadas } from '../../data/calendario';
-
 @Component({
   selector: 'partidos-jornada',
   standalone: true,
@@ -22,7 +21,7 @@ export class PartidosJornadaComponent {
 
   public jornadasModal = jornadas;
   public jornadaSeleccionada: Jornada | undefined;
-  public jornadaActual: number = 1;
+  public jornadaActual: number = 3;
   public jornadaActualArray: Jornada | undefined;
 
 
