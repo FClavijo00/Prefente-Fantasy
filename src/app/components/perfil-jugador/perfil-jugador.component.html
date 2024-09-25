@@ -1,0 +1,116 @@
+<div class="flex justify-between items-center bg-gray-900 border-gray-700 h-8 px-3 border-perfil">
+    <fa-icon [icon]="volverIcon" class="text-white cursor-pointer" (click)="cerrarModal.emit()"></fa-icon>
+    <div>
+        <span class="text-white text-sm">Perfil de Jugador</span>
+    </div>
+</div>
+<div class="modal-body bg-gray-900 py-1 px-3">
+    <div class="tarjeta-jugador flex">
+        <div class="bg-gray-800 bloque-jugador">
+            <img src="{{jugador.urlImagen}}" alt="Imagen del jugador" class="img-jugador">
+            <img src="{{jugador.urlEscudo}}" class="escudo-jugador">
+        </div>
+        <div class="bg-gray-700 datos-jugador w-full">
+            <div class="flex justify-between items-center">
+                <div class="ml-3">
+                    <div class="flex mb-1">
+                        @if(jugador.posicion == 'POR') {
+                        <a
+                            class="text-white bg-gradient-to-br from-orange-700 to-orange-500 hover:bg-gradient-to-bl text-sm flex justify-center items-center w-10">{{jugador.posicion}}</a>
+                        } @else if (jugador.posicion == 'DEF') {
+                        <a
+                            class="text-white bg-gradient-to-br from-purple-700 to-purple-500 hover:bg-gradient-to-bl text-sm flex justify-center items-center w-10">{{jugador.posicion}}</a>
+                        } @else if (jugador.posicion == 'MED') {
+                        <a
+                            class="text-white bg-gradient-to-br from-blue-700 to-blue-500 hover:bg-gradient-to-bl text-sm flex justify-center items-center w-10">{{jugador.posicion}}</a>
+                        } @else if (jugador.posicion == 'DEL') {
+                        <a
+                            class="text-white bg-gradient-to-br from-red-700 to-red-500 hover:bg-gradient-to-bl text-sm flex justify-center items-center w-10">{{jugador.posicion}}</a>
+                        }
+
+                        <span
+                            class="text-bold font-medium text-white text-ellipsis whitespace-nowrap overflow-hidden ms-2">
+                            @if (jugador.sobrenombre) {
+                            {{jugador.sobrenombre}}
+                            } @else {
+                            {{jugador.nombre}}
+                            }
+                        </span>
+                    </div>
+                    <div class="flex items-center mb-1">
+                        <span class="text-bold text-white text-ellipsis whitespace-nowrap overflow-hidden text-sm">
+                            <fa-icon [icon]="euroIcon" class="mr-1"></fa-icon> {{jugador.precio}}
+                        </span>
+
+                    </div>
+                    <div class="flex items-center">
+                        @if (jugador.subiendo) {
+                        <span class="text-bold text-ellipsis whitespace-nowrap overflow-hidden text-sm text-green-500">
+                            <fa-icon [icon]="chevronUpIcon" class=""></fa-icon> + {{jugador.valorSubidaBajada}}
+                        </span>
+                        } @else if (jugador.bajando) {
+                        <span class="text-bold text-ellipsis whitespace-nowrap overflow-hidden text-sm text-red-500">
+                            <fa-icon [icon]="chevronDownIcon" class=""></fa-icon> - {{jugador.valorSubidaBajada}}
+                        </span>
+                        }
+
+                    </div>
+                </div>
+                <div class="flex flex-col text-end mr-3">
+                    <span class="text-bold font-medium text-white text-ellipsis whitespace-nowrap overflow-hidden ms-2">
+                        PFSY: 31
+                    </span>
+                    <span class="text-bold font-medium text-white text-ellipsis whitespace-nowrap overflow-hidden ms-2">
+                        Media: 5
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center overflow-x-scroll mt-3">
+        <div class="div-jornada" *ngFor="let jornada of jugador.puntuacionJornadas | keyvalue; let i = index">
+            <a (click)="verDescripcionJornada(jornada)"
+                class="cursor-pointer rounded-md mr-3 w-12 h-20 flex justify-between items-center flex-col bg-gray-900 hover:bg-gray-800 text-white">
+                <span class="text-xs">J{{ jornada.key }}</span>
+                <div class="w-full text-center">
+                    @if (jugador.puntuacionJornadas[i + 1].puntos == null) {
+                        <span class="text-lg text-white font-bold">-</span>
+                    } @else {
+                        <span class="text-lg text-white font-bold">{{ jugador.puntuacionJornadas[i + 1].puntos }}</span>
+                    }
+                    <div class="barra-puntos rounded-b-md max-h-8"
+                        [style.height]="getBarraHeight(jugador.puntuacionJornadas[i + 1].puntos)">
+                    </div>
+                    @if (jugador.puntuacionJornadas[i + 1].puntos == null) {
+                        <div class="barra-puntos h-1 max-h-8 bg-orange-800 rounded-b-md"></div>
+                    }
+                    @else if (jugador.puntuacionJornadas[i + 1].puntos <= 0 ) {
+                        <div class="barra-puntos h-1 max-h-8 bg-red-800 rounded-b-md"></div>
+                    } @else if (jugador.puntuacionJornadas[i + 1].puntos && jugador.puntuacionJornadas[i + 1].puntos <= 2) {
+                        <div class="barra-puntos h-2 max-h-8 bg-green-800 rounded-b-md">
+                        </div>
+                    } @else if (jugador.puntuacionJornadas[i + 1].puntos && jugador.puntuacionJornadas[i + 1].puntos <= 4) {
+                        <div class="barra-puntos h-3 max-h-8 bg-green-800 rounded-b-md">
+                        </div>
+                    } @else if (jugador.puntuacionJornadas[i + 1].puntos && jugador.puntuacionJornadas[i + 1].puntos <= 6) {
+                        <div class="barra-puntos h-4 max-h-8 bg-green-800 rounded-b-md">
+                        </div>
+                    } @else if (jugador.puntuacionJornadas[i + 1].puntos && jugador.puntuacionJornadas[i + 1].puntos <= 8) {
+                        <div class="barra-puntos h-5 max-h-8 bg-green-800 rounded-b-md">
+                        </div>
+                    } @else if (jugador.puntuacionJornadas[i + 1].puntos > 8 && jugador.puntuacionJornadas[i + 1].puntos <= 10) {
+                        <div class="barra-puntos h-6 max-h-8 bg-green-800 rounded-b-md">
+                        </div>
+                    } @else if (jugador.puntuacionJornadas[i + 1].puntos > 10 && jugador.puntuacionJornadas[i + 1].puntos <= 12) {
+                        <div class="barra-puntos h-7 max-h-8 bg-green-800 rounded-b-md">
+                        </div>
+                    } @else if (jugador.puntuacionJornadas[i + 1].puntos > 12) {
+                        <div class="barra-puntos h-8 max-h-8 bg-green-800 rounded-b-md">
+                        </div>
+                    }
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

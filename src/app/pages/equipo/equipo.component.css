@@ -1,0 +1,203 @@
+.img-campo-futbol {
+    min-height: 500px;
+    max-height: 625px;
+    width: 100%;
+    vertical-align: middle;
+}
+
+.col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.text-jugador {
+    text-shadow: 1px 1px #000;
+}
+
+.jugador-portero {
+    left: 50%;
+    top: 87%;
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    overflow: hidden;
+}
+
+.jugador-lateral-der {
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    overflow: hidden;
+
+    &.form-4-3-3 {
+        left: 89%;
+        top: 66%;
+    }
+}
+
+.jugador-central-der {
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    overflow: hidden;
+
+    &.form-4-3-3 {
+        left: 68%;
+        top: 70%;
+    }
+}
+
+.jugador-central-izq {
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    overflow: hidden;
+
+    &.form-4-3-3 {
+        left: 32%;
+        top: 70%;
+    }
+}
+
+.jugador-lateral-izq {
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    overflow: hidden;
+
+    &.form-4-3-3 {
+        left: 11%;
+        top: 66%;
+    }
+}
+
+.jugador-mc-der {
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    overflow: hidden;
+
+    &.form-4-3-3 {
+        left: 68%;
+        top: 50%;
+    }
+}
+
+.jugador-mc-izq {
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    overflow: hidden;
+
+    &.form-4-3-3 {
+        left: 32%;
+        top: 50%;
+    }
+}
+
+.jugador-mco {
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    overflow: hidden;
+
+    &.form-4-3-3 {
+        left: 50%;
+        top: 34%;
+    }
+}
+
+.jugador-ext-der {
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    overflow: hidden;
+
+    &.form-4-3-3 {
+        left: 89%;
+        top: 27%;
+    }
+}
+
+.jugador-ext-izq {
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    overflow: hidden;
+
+    &.form-4-3-3 {
+        left: 11%;
+        top: 27%;
+    }
+}
+
+.jugador-del-centro {
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    overflow: hidden;
+
+    &.form-4-3-3 {
+        left: 50%;
+        top: 18%;
+    }
+}
+
+.img-jugador {
+    box-sizing: border-box;
+    z-index: 1;
+    position: relative;
+
+    &:hover {
+        filter: drop-shadow(1px 1px 0 #910000) drop-shadow(-1px -1px 0 #910000);
+    }
+}
+
+.escudo-jugador {
+    position: absolute;
+    top: 0;
+    right: -25px;
+    max-width: 50px;
+    max-height: 50px;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+.shadow-red {
+    box-shadow: 0px 0px 10px #dc3545;
+}
+
+.border-perfil {
+    border-width: 1px;
+    border-top: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+}
+
+.bloque-jugador {
+    overflow: hidden;
+    width: 8rem;
+    height: 6.25rem;
+    position: sticky;
+}
+
+.escudo-jugador {
+    position: absolute;
+    top: 0;
+    right: -25px;
+    max-width: 50px;
+    max-height: 50px;
+    z-index: -1;
+    opacity: 0.7;
+}

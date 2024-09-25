@@ -1,1 +1,810 @@
-<p>equipo works!</p>
+<div class="bg-gray-800 min-h-screen">
+    <div class="row pt-1">
+        <div class="col-md-12">
+            <tabset [justified]="true">
+                <tab heading="Alineación">
+                    <div class="flex justify-center bg-gray-800 items-center p-4">
+                        <div class="flex flex-wrap">
+                            <div class="col-8">
+                                <div class="relative">
+                                    <img class="border-gray-800 rounded-lg shadow img-campo-futbol"
+                                        src="assets/otros/campo-futbol-2.jpeg" alt="" />
+
+                                    <div *ngFor="let jugador of titulares">
+                                        @if (jugador.posicionInicial == 'POR') {
+                                        <div class="jugador-portero w-20 h-24 bg-gray-800"
+                                            [ngClass]="{ 'shadow-red': jugador.posicion != 'POR' }"
+                                            (click)="verJugador(modalJugador, jugador)">
+                                            @if (jugador.posicion != 'POR') {
+                                            <fa-icon [icon]="warningIcon"
+                                                class="text-red-500 absolute top-0 left-0"></fa-icon>
+                                            }
+                                            <div>
+                                                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                                                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+                                            </div>
+                                            <div class="flex justify-center bg-gray-300">
+                                                <span
+                                                    class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                                                    @if (jugador.sobrenombre) {
+                                                    {{ jugador.sobrenombre }}
+                                                    } @else {
+                                                    {{ jugador.nombre }}
+                                                    }
+                                                </span>
+                                            </div>
+                                        </div>
+                                        } @if (jugador.posicionInicial == 'LD') {
+                                        <div class="jugador-lateral-der form-4-3-3 w-20 h-24 bg-gray-800"
+                                            [ngClass]="{ 'shadow-red': jugador.posicion != 'DEF' }"
+                                            (click)="verJugador(modalJugador, jugador)">
+                                            @if (jugador.posicion != 'DEF') {
+                                            <fa-icon [icon]="warningIcon"
+                                                class="text-red-500 absolute top-0 left-0"></fa-icon>
+                                            }
+                                            <div>
+                                                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                                                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+                                            </div>
+                                            <div class="flex justify-center bg-gray-300">
+                                                <span
+                                                    class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                                                    @if (jugador.sobrenombre) {
+                                                    {{ jugador.sobrenombre }}
+                                                    } @else {
+                                                    {{ jugador.nombre }}
+                                                    }
+                                                </span>
+                                            </div>
+                                        </div>
+                                        } @if (jugador.posicionInicial == 'CEND') {
+                                        <div class="jugador-central-der form-4-3-3 w-20 h-24 bg-gray-800"
+                                            [ngClass]="{ 'shadow-red': jugador.posicion != 'DEF' }"
+                                            (click)="verJugador(modalJugador, jugador)">
+                                            @if (jugador.posicion != 'DEF') {
+                                            <fa-icon [icon]="warningIcon"
+                                                class="text-red-500 absolute top-0 left-0"></fa-icon>
+                                            }
+                                            <div>
+                                                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                                                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+                                            </div>
+                                            <div class="flex justify-center bg-gray-300">
+                                                <span
+                                                    class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                                                    @if (jugador.sobrenombre) {
+                                                    {{ jugador.sobrenombre }}
+                                                    } @else {
+                                                    {{ jugador.nombre }}
+                                                    }
+                                                </span>
+                                            </div>
+                                        </div>
+                                        } @if (jugador.posicionInicial == 'CENI') {
+                                        <div class="jugador-central-izq form-4-3-3 w-20 h-24 bg-gray-800"
+                                            [ngClass]="{ 'shadow-red': jugador.posicion != 'DEF' }"
+                                            (click)="verJugador(modalJugador, jugador)">
+                                            @if (jugador.posicion != 'DEF') {
+                                            <fa-icon [icon]="warningIcon"
+                                                class="text-red-500 absolute top-0 left-0"></fa-icon>
+                                            }
+                                            <div>
+                                                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                                                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+                                            </div>
+                                            <div class="flex justify-center bg-gray-300">
+                                                <span
+                                                    class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                                                    @if (jugador.sobrenombre) {
+                                                    {{ jugador.sobrenombre }}
+                                                    } @else {
+                                                    {{ jugador.nombre }}
+                                                    }
+                                                </span>
+                                            </div>
+                                        </div>
+                                        } @if (jugador.posicionInicial == 'LI') {
+                                        <div class="jugador-lateral-izq form-4-3-3 w-20 h-24 bg-gray-800"
+                                            [ngClass]="{ 'shadow-red': jugador.posicion != 'DEF' }"
+                                            (click)="verJugador(modalJugador, jugador)">
+                                            @if (jugador.posicion != 'DEF') {
+                                            <fa-icon [icon]="warningIcon"
+                                                class="text-red-500 absolute top-0 left-0"></fa-icon>
+                                            }
+                                            <div>
+                                                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                                                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+                                            </div>
+                                            <div class="flex justify-center bg-gray-300">
+                                                <span
+                                                    class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                                                    @if (jugador.sobrenombre) {
+                                                    {{ jugador.sobrenombre }}
+                                                    } @else {
+                                                    {{ jugador.nombre }}
+                                                    }
+                                                </span>
+                                            </div>
+                                        </div>
+                                        }
+                                        @if (jugador.posicionInicial == 'MEDD') {
+                                        <div class="jugador-mc-der form-4-3-3 w-20 h-24 bg-gray-800"
+                                            [ngClass]="{ 'shadow-red': jugador.posicion != 'MED' }"
+                                            (click)="verJugador(modalJugador, jugador)">
+                                            @if (jugador.posicion != 'MED') {
+                                            <fa-icon [icon]="warningIcon"
+                                                class="text-red-500 absolute top-0 left-0"></fa-icon>
+                                            }
+                                            <div>
+                                                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                                                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+                                            </div>
+                                            <div class="flex justify-center bg-gray-300">
+                                                <span
+                                                    class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                                                    @if (jugador.sobrenombre) {
+                                                    {{ jugador.sobrenombre }}
+                                                    } @else {
+                                                    {{ jugador.nombre }}
+                                                    }
+                                                </span>
+                                            </div>
+                                        </div>
+                                        }
+                                        @if (jugador.posicionInicial == 'MEDI') {
+                                        <div class="jugador-mc-izq form-4-3-3 w-20 h-24 bg-gray-800"
+                                            [ngClass]="{ 'shadow-red': jugador.posicion != 'MED' }"
+                                            (click)="verJugador(modalJugador, jugador)">
+                                            @if (jugador.posicion != 'MED') {
+                                            <fa-icon [icon]="warningIcon"
+                                                class="text-red-500 absolute top-0 left-0"></fa-icon>
+                                            }
+                                            <div>
+                                                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                                                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+                                            </div>
+                                            <div class="flex justify-center bg-gray-300">
+                                                <span
+                                                    class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                                                    @if (jugador.sobrenombre) {
+                                                    {{ jugador.sobrenombre }}
+                                                    } @else {
+                                                    {{ jugador.nombre }}
+                                                    }
+                                                </span>
+                                            </div>
+                                        </div>
+                                        }
+                                        @if (jugador.posicionInicial == 'MCO') {
+                                        <div class="jugador-mco form-4-3-3 w-20 h-24 bg-gray-800"
+                                            [ngClass]="{ 'shadow-red': jugador.posicion != 'MED' }"
+                                            (click)="verJugador(modalJugador, jugador)">
+                                            @if (jugador.posicion != 'MED') {
+                                            <fa-icon [icon]="warningIcon"
+                                                class="text-red-500 absolute top-0 left-0"></fa-icon>
+                                            }
+                                            <div>
+                                                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                                                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+                                            </div>
+                                            <div class="flex justify-center bg-gray-300">
+                                                <span
+                                                    class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                                                    @if (jugador.sobrenombre) {
+                                                    {{ jugador.sobrenombre }}
+                                                    } @else {
+                                                    {{ jugador.nombre }}
+                                                    }
+                                                </span>
+                                            </div>
+                                        </div>
+                                        }
+                                        @if (jugador.posicionInicial == 'EXTD') {
+                                        <div class="jugador-ext-der form-4-3-3 w-20 h-24 bg-gray-800"
+                                            [ngClass]="{ 'shadow-red': jugador.posicion != 'DEL' }"
+                                            (click)="verJugador(modalJugador, jugador)">
+                                            @if (jugador.posicion != 'DEL') {
+                                            <fa-icon [icon]="warningIcon"
+                                                class="text-red-500 absolute top-0 left-0"></fa-icon>
+                                            }
+                                            <div>
+                                                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                                                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+                                            </div>
+                                            <div class="flex justify-center bg-gray-300">
+                                                <span
+                                                    class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                                                    @if (jugador.sobrenombre) {
+                                                    {{ jugador.sobrenombre }}
+                                                    } @else {
+                                                    {{ jugador.nombre }}
+                                                    }
+                                                </span>
+                                            </div>
+                                        </div>
+                                        }
+                                        @if (jugador.posicionInicial == 'EXTI') {
+                                        <div class="jugador-ext-izq form-4-3-3 w-20 h-24 bg-gray-800"
+                                            [ngClass]="{ 'shadow-red': jugador.posicion != 'DEL' }"
+                                            (click)="verJugador(modalJugador, jugador)">
+                                            @if (jugador.posicion != 'DEL') {
+                                            <fa-icon [icon]="warningIcon"
+                                                class="text-red-500 absolute top-0 left-0"></fa-icon>
+                                            }
+                                            <div>
+                                                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                                                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+                                            </div>
+                                            <div class="flex justify-center bg-gray-300">
+                                                <span
+                                                    class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                                                    @if (jugador.sobrenombre) {
+                                                    {{ jugador.sobrenombre }}
+                                                    } @else {
+                                                    {{ jugador.nombre }}
+                                                    }
+                                                </span>
+                                            </div>
+                                        </div>
+                                        }
+                                        @if (jugador.posicionInicial == 'DC') {
+                                        <div class="jugador-del-centro form-4-3-3 w-20 h-24 bg-gray-800"
+                                            [ngClass]="{ 'shadow-red': jugador.posicion != 'DEL' }"
+                                            (click)="verJugador(modalJugador, jugador)">
+                                            @if (jugador.posicion != 'DEL') {
+                                            <fa-icon [icon]="warningIcon"
+                                                class="text-red-500 absolute top-0 left-0"></fa-icon>
+                                            }
+                                            <div>
+                                                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                                                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+                                            </div>
+                                            <div class="flex justify-center bg-gray-300">
+                                                <span
+                                                    class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                                                    @if (jugador.sobrenombre) {
+                                                    {{ jugador.sobrenombre }}
+                                                    } @else {
+                                                    {{ jugador.nombre }}
+                                                    }
+                                                </span>
+                                            </div>
+                                        </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+                    </div>
+                </tab>
+                <tab heading="Plantilla">
+                    <div *ngFor="let jugador of plantillaCompleta">
+                        <div class="tarjeta-jugador flex mt-3 mx-5">
+                            <div class="bg-gray-900 bloque-jugador">
+                                <img src="{{jugador.urlImagen}}" alt="Imagen del jugador" class="img-jugador p-2">
+                                <img src="{{jugador.urlEscudo}}" class="escudo-jugador">
+                            </div>
+                            <div class="bg-gray-700 datos-jugador w-full">
+                                <div class="flex justify-between items-center">
+                                    <div class="ml-3">
+                                        <div class="flex mb-1">
+                                            @if(jugador.posicion == 'POR') {
+                                            <a
+                                                class="text-white bg-gradient-to-br from-orange-700 to-orange-500 hover:bg-gradient-to-bl text-sm flex justify-center items-center w-10">{{jugador.posicion}}</a>
+                                            } @else if (jugador.posicion == 'DEF') {
+                                            <a
+                                                class="text-white bg-gradient-to-br from-purple-700 to-purple-500 hover:bg-gradient-to-bl text-sm flex justify-center items-center w-10">{{jugador.posicion}}</a>
+                                            } @else if (jugador.posicion == 'MED') {
+                                            <a
+                                                class="text-white bg-gradient-to-br from-blue-700 to-blue-500 hover:bg-gradient-to-bl text-sm flex justify-center items-center w-10">{{jugador.posicion}}</a>
+                                            } @else if (jugador.posicion == 'DEL') {
+                                            <a
+                                                class="text-white bg-gradient-to-br from-red-700 to-red-500 hover:bg-gradient-to-bl text-sm flex justify-center items-center w-10">{{jugador.posicion}}</a>
+                                            }
+
+                                            <span
+                                                class="text-bold font-medium text-white text-ellipsis whitespace-nowrap overflow-hidden ms-2">
+                                                @if (jugador.sobrenombre) {
+                                                {{jugador.sobrenombre}}
+                                                } @else {
+                                                {{jugador.nombre}}
+                                                }
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center mb-1">
+                                            <span
+                                                class="text-bold text-white text-ellipsis whitespace-nowrap overflow-hidden text-sm">
+                                                <fa-icon [icon]="euroIcon" class="mr-1"></fa-icon> {{jugador.precio}}
+                                            </span>
+
+                                        </div>
+                                        <div class="flex items-center">
+                                            @if (jugador.subiendo) {
+                                            <span
+                                                class="text-bold text-ellipsis whitespace-nowrap overflow-hidden text-sm text-green-500">
+                                                <fa-icon [icon]="chevronUpIcon" class=""></fa-icon> +
+                                                {{jugador.valorSubidaBajada}}
+                                            </span>
+                                            } @else if (jugador.bajando) {
+                                            <span
+                                                class="text-bold text-ellipsis whitespace-nowrap overflow-hidden text-sm text-red-500">
+                                                <fa-icon [icon]="chevronDownIcon" class=""></fa-icon> -
+                                                {{jugador.valorSubidaBajada}}
+                                            </span>
+                                            }
+
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col text-end mr-3">
+                                        <span
+                                            class="text-bold font-medium text-white text-ellipsis whitespace-nowrap overflow-hidden ms-2">
+                                            PFSY: 31
+                                        </span>
+                                        <span
+                                            class="text-bold font-medium text-white text-ellipsis whitespace-nowrap overflow-hidden ms-2">
+                                            Media: 5
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+                <tab heading="Puntos">
+                    <div class="flex justify-center bg-gray-800 items-center p-4">
+                        <div class="flex flex-wrap">
+                            <div class="col-12">
+                                <div class="relative">
+                                    <img class="border-gray-800 rounded-lg shadow img-campo-futbol"
+                                        src="assets/otros/campo-futbol-2.jpeg" alt="" />
+
+                                    <div *ngFor="let jugador of titulares">
+                                        @if (jugador.posicionInicial == 'POR') {
+                                        <div class="jugador-portero w-20 h-24 bg-gray-800"
+                                            (click)="verJugador(modalJugador, jugador)">
+                                            @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'POR') {
+                                            <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                                                style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                                                <span class="text-white absolute top-0 left-2">
+                                                    {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                                                </span>
+                                            </div>
+                                            } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='POR' ) { <div
+                                                class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                                                style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                                                <span class="text-white absolute top-0 left-2">
+                                                    {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                                                </span>
+                                        </div>
+                                        } @else if (jugador.posicion != 'POR') {
+                                        <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                                            style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                                            <span class="text-white absolute top-0 left-2">
+                                                0
+                                            </span>
+                                        </div>
+                                        }
+                                        <div>
+                                            <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                                            <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+                                        </div>
+                                        <div class="flex justify-center bg-gray-300">
+                                            <span
+                                                class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                                                @if (jugador.sobrenombre) {
+                                                {{ jugador.sobrenombre }}
+                                                } @else {
+                                                {{ jugador.nombre }}
+                                                }
+                                            </span>
+                                        </div>
+                                    </div>
+                                    } @if (jugador.posicionInicial == 'LD') {
+                                    <div class="jugador-lateral-der form-4-3-3 w-20 h-24 bg-gray-800"
+                                        (click)="verJugador(modalJugador, jugador)">
+                                        @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'DEF') {
+                                        <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                                            style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                                            <span class="text-white absolute top-0 left-2">
+                                                {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                                            </span>
+                                        </div>
+                                        } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='DEF' ) { <div
+                                            class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                                            style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                                            <span class="text-white absolute top-0 left-2">
+                                                {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                                            </span>
+                                    </div>
+                                    } @else if (jugador.posicion != 'DEF') {
+                                    <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                                        style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                                        <span class="text-white absolute top-0 left-2">
+                                            0
+                                        </span>
+                                    </div>
+                                    }
+                                    <div>
+                                        <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                                        <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+                                    </div>
+                                    <div class="flex justify-center bg-gray-300">
+                                        <span
+                                            class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                                            @if (jugador.sobrenombre) {
+                                            {{ jugador.sobrenombre }}
+                                            } @else {
+                                            {{ jugador.nombre }}
+                                            }
+                                        </span>
+                                    </div>
+                                </div>
+                                } @if (jugador.posicionInicial == 'CEND') {
+                                <div class="jugador-central-der form-4-3-3 w-20 h-24 bg-gray-800"
+                                    (click)="verJugador(modalJugador, jugador)">
+                                    @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'DEF') {
+                                    <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                                        style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                                        <span class="text-white absolute top-0 left-2">
+                                            {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                                        </span>
+                                    </div>
+                                    } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='DEF' ) { <div
+                                        class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                                        style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                                        <span class="text-white absolute top-0 left-2">
+                                            {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                                        </span>
+                                </div>
+                                } @else if (jugador.posicion != 'DEF') {
+                                <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                                    <span class="text-white absolute top-0 left-2">
+                                        0
+                                    </span>
+                                </div>
+                                }
+                                <div>
+                                    <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                                    <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+                                </div>
+                                <div class="flex justify-center bg-gray-300">
+                                    <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                                        @if (jugador.sobrenombre) {
+                                        {{ jugador.sobrenombre }}
+                                        } @else {
+                                        {{ jugador.nombre }}
+                                        }
+                                    </span>
+                                </div>
+                            </div>
+                            } @if (jugador.posicionInicial == 'CENI') {
+                            <div class="jugador-central-izq form-4-3-3 w-20 h-24 bg-gray-800"
+                                (click)="verJugador(modalJugador, jugador)">
+                                @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'DEF') {
+                                <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                                    <span class="text-white absolute top-0 left-2">
+                                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                                    </span>
+                                </div>
+                                } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='DEF' ) { <div
+                                    class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                                    <span class="text-white absolute top-0 left-2">
+                                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                                    </span>
+                            </div>
+                            } @else if (jugador.posicion != 'DEF') {
+                            <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                                style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                                <span class="text-white absolute top-0 left-2">
+                                    0
+                                </span>
+                            </div>
+                            }
+                            <div>
+                                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+                            </div>
+                            <div class="flex justify-center bg-gray-300">
+                                <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                                    @if (jugador.sobrenombre) {
+                                    {{ jugador.sobrenombre }}
+                                    } @else {
+                                    {{ jugador.nombre }}
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                        } @if (jugador.posicionInicial == 'LI') {
+                        <div class="jugador-lateral-izq form-4-3-3 w-20 h-24 bg-gray-800"
+                            (click)="verJugador(modalJugador, jugador)">
+                            @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'DEF') {
+                            <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                                style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                                <span class="text-white absolute top-0 left-2">
+                                    {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                                </span>
+                            </div>
+                            } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='DEF' ) { <div
+                                class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                                style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                                <span class="text-white absolute top-0 left-2">
+                                    {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                                </span>
+                        </div>
+                        } @else if (jugador.posicion != 'DEF') {
+                        <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                            style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                            <span class="text-white absolute top-0 left-2">
+                                0
+                            </span>
+                        </div>
+                        }
+                        <div>
+                            <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                            <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+                        </div>
+                        <div class="flex justify-center bg-gray-300">
+                            <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                                @if (jugador.sobrenombre) {
+                                {{ jugador.sobrenombre }}
+                                } @else {
+                                {{ jugador.nombre }}
+                                }
+                            </span>
+                        </div>
+                    </div>
+                    }
+                    @if (jugador.posicionInicial == 'MEDD') {
+                    <div class="jugador-mc-der form-4-3-3 w-20 h-24 bg-gray-800"
+                        (click)="verJugador(modalJugador, jugador)">
+                        @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'MED') {
+                        <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                            style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                            <span class="text-white absolute top-0 left-2">
+                                {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                            </span>
+                        </div>
+                        } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='MED' ) { <div
+                            class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                            style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                            <span class="text-white absolute top-0 left-2">
+                                {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                            </span>
+                    </div>
+                    } @else if (jugador.posicion != 'MED') {
+                    <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                        style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                        <span class="text-white absolute top-0 left-2">
+                            0
+                        </span>
+                    </div>
+                    }
+                    <div>
+                        <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                        <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+                    </div>
+                    <div class="flex justify-center bg-gray-300">
+                        <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                            @if (jugador.sobrenombre) {
+                            {{ jugador.sobrenombre }}
+                            } @else {
+                            {{ jugador.nombre }}
+                            }
+                        </span>
+                    </div>
+        </div>
+        }
+        @if (jugador.posicionInicial == 'MEDI') {
+        <div class="jugador-mc-izq form-4-3-3 w-20 h-24 bg-gray-800" (click)="verJugador(modalJugador, jugador)">
+            @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'MED') {
+                <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                    <span class="text-white absolute top-0 left-2">
+                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                    </span>
+                </div>
+                } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion == 'MED') {
+                <div class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                    <span class="text-white absolute top-0 left-2">
+                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                    </span>
+                </div>
+                } @else if (jugador.posicion != 'MED') {
+                    <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                    <span class="text-white absolute top-0 left-2">
+                        0
+                    </span>
+                </div>
+                }
+            <div>
+                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+            </div>
+            <div class="flex justify-center bg-gray-300">
+                <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                    @if (jugador.sobrenombre) {
+                    {{ jugador.sobrenombre }}
+                    } @else {
+                    {{ jugador.nombre }}
+                    }
+                </span>
+            </div>
+        </div>
+        }
+        @if (jugador.posicionInicial == 'MCO') {
+        <div class="jugador-mco form-4-3-3 w-20 h-24 bg-gray-800" (click)="verJugador(modalJugador, jugador)">
+            @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'MED') {
+                <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                    <span class="text-white absolute top-0 left-2">
+                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                    </span>
+                </div>
+                } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion == 'MED') {
+                <div class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                    <span class="text-white absolute top-0 left-2">
+                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                    </span>
+                </div>
+                } @else if (jugador.posicion != 'MED') {
+                    <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                    <span class="text-white absolute top-0 left-2">
+                        0
+                    </span>
+                </div>
+                }
+            <div>
+                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+            </div>
+            <div class="flex justify-center bg-gray-300">
+                <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                    @if (jugador.sobrenombre) {
+                    {{ jugador.sobrenombre }}
+                    } @else {
+                    {{ jugador.nombre }}
+                    }
+                </span>
+            </div>
+        </div>
+        }
+        @if (jugador.posicionInicial == 'EXTD') {
+        <div class="jugador-ext-der form-4-3-3 w-20 h-24 bg-gray-800" (click)="verJugador(modalJugador, jugador)">
+            @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'DEL') {
+                <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                    <span class="text-white absolute top-0 left-2">
+                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                    </span>
+                </div>
+                } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion == 'DEL') {
+                <div class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                    <span class="text-white absolute top-0 left-2">
+                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                    </span>
+                </div>
+                } @else if (jugador.posicion != 'DEL') {
+                    <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                    <span class="text-white absolute top-0 left-2">
+                        0
+                    </span>
+                </div>
+                }
+            <div>
+                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+            </div>
+            <div class="flex justify-center bg-gray-300">
+                <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                    @if (jugador.sobrenombre) {
+                    {{ jugador.sobrenombre }}
+                    } @else {
+                    {{ jugador.nombre }}
+                    }
+                </span>
+            </div>
+        </div>
+        }
+        @if (jugador.posicionInicial == 'EXTI') {
+        <div class="jugador-ext-izq form-4-3-3 w-20 h-24 bg-gray-800" (click)="verJugador(modalJugador, jugador)">
+            @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'DEL') {
+                <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                    <span class="text-white absolute top-0 left-2">
+                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                    </span>
+                </div>
+                } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion == 'DEL') {
+                <div class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                    <span class="text-white absolute top-0 left-2">
+                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                    </span>
+                </div>
+                } @else if (jugador.posicion != 'DEL') {
+                    <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                    <span class="text-white absolute top-0 left-2">
+                        0
+                    </span>
+                </div>
+                }
+            <div>
+                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+            </div>
+            <div class="flex justify-center bg-gray-300">
+                <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                    @if (jugador.sobrenombre) {
+                    {{ jugador.sobrenombre }}
+                    } @else {
+                    {{ jugador.nombre }}
+                    }
+                </span>
+            </div>
+        </div>
+        }
+        @if (jugador.posicionInicial == 'DC') {
+        <div class="jugador-del-centro form-4-3-3 w-20 h-24 bg-gray-800" (click)="verJugador(modalJugador, jugador)">
+            @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'DEL') {
+                <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                    <span class="text-white absolute top-0 left-2">
+                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                    </span>
+                </div>
+                } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion == 'DEL') {
+                <div class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                    <span class="text-white absolute top-0 left-2">
+                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+                    </span>
+                </div>
+                } @else if (jugador.posicion != 'DEL') {
+                    <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                    <span class="text-white absolute top-0 left-2">
+                        0
+                    </span>
+                </div>
+                }
+            <div>
+                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+            </div>
+            <div class="flex justify-center bg-gray-300">
+                <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                    @if (jugador.sobrenombre) {
+                    {{ jugador.sobrenombre }}
+                    } @else {
+                    {{ jugador.nombre }}
+                    }
+                </span>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+</div>
+</div>
+</div>
+</tab>
+</tabset>
+</div>
+</div>
+
+</div>
+
+<ng-template #modalJugador let-modal let-c="close" let-d="dismiss">
+    <perfil-jugador [modal]="modal" [jugador]="jugadorSeleccionado" (cerrarModal)="d('Cross click')"></perfil-jugador>
+</ng-template>
