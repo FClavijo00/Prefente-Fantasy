@@ -10,3 +10,69 @@
 .border-width-1 {
     border-width: 1px;
 }
+
+.nav-link {
+    color: #6b7280;
+    font-weight: 500;
+    font-size: small;
+    border: 0 !important;
+
+    &:hover {
+        border: 0 !important;
+        color: white;
+    }
+
+    &:focus {
+        border: 0 !important;
+        color: white;
+    }
+
+    &.active {
+        border: 0 !important;
+        background-color: transparent !important;
+        color: white !important;
+    }
+
+    &:focus-visible {
+        outline: 0 !important;
+        box-shadow: none !important;
+    }
+}
+
+.nav-item {
+    &.active {
+        border-bottom-width: 2px;
+        border-color: #dc2626 !important;
+    }
+}
+
+.nav.nav-tabs {
+    border-bottom-width: 1px;
+    border-color: #374151;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-moz-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+::-moz-scrollbar-thumb {
+    background-color: transparent;
+}
+
+::-moz-scrollbar-track {
+    background-color: transparent;
+}
