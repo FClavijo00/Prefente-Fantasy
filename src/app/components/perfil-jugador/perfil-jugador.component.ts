@@ -19,13 +19,15 @@ export class PerfilJugadorComponent {
 
   @Input() modal: any;
   @Input() jugador: any;
+  @Input() puntuaciones: any;
   
   @Output() cerrarModal = new EventEmitter<any>();
 
   constructor(
   ) { }
 
-  public jornadas = [1, 2]
+  public jornadas = [1, 2];
+  public jornadaActual: number = 2;
 
   public volverIcon = faChevronLeft;
   public chevronUpIcon = faChevronUp;
@@ -33,17 +35,9 @@ export class PerfilJugadorComponent {
   public euroIcon = faEuroSign;
 
   verDescripcionJornada(jornada: any) {
-    console.log(jornada);
+    this.jornadaActual = jornada.key;
   }
 
-  getBarraHeight(puntos: number) {
-    if (puntos <= 0) {
-      return ;
-    }
-  }
-
-  ngOnInit(): void {
-    console.log(this.jugador)
-  }
+  ngOnInit(): void {}
 
 }

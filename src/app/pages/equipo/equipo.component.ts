@@ -38,10 +38,12 @@ export class EquipoComponent {
   public banquillo: any[]         = [];
 
   public jugadorSeleccionado: any;
+  public puntuacionesJugador: any;
   public jornadaActual: number    = 2;
 
   verJugador(content: any, jugador: any) {
     this.jugadorSeleccionado = jugador;
+    this.puntuacionesJugador = this.jugadorSeleccionado.puntuacionJornadas;
     this._modalService.open(
       content, 
       { size: 'lg', centered: true, backdrop: 'static', keyboard: false }

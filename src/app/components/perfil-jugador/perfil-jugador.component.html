@@ -71,46 +71,152 @@
     <div class="flex items-center overflow-x-scroll mt-3">
         <div class="div-jornada" *ngFor="let jornada of jugador.puntuacionJornadas | keyvalue; let i = index">
             <a (click)="verDescripcionJornada(jornada)"
-                class="cursor-pointer rounded-md mr-3 w-12 h-20 flex justify-between items-center flex-col bg-gray-900 hover:bg-gray-800 text-white">
+                class="cursor-pointer rounded-md mr-3 w-12 h-20 flex justify-between items-center flex-col"
+                [ngClass]="{ 'bg-gray-200 text-gray-900': jornada.key === jornadaActual, 'bg-gray-900 text-gray-200 hover:bg-gray-800': jornada.key !== jornadaActual }">
                 <span class="text-xs">J{{ jornada.key }}</span>
                 <div class="w-full text-center">
                     @if (jugador.puntuacionJornadas[i + 1].puntos == null) {
-                        <span class="text-lg text-white font-bold">-</span>
+                    <span class="text-lg  font-bold">-</span>
                     } @else {
-                        <span class="text-lg text-white font-bold">{{ jugador.puntuacionJornadas[i + 1].puntos }}</span>
+                    <span class="text-lg  font-bold">{{ jugador.puntuacionJornadas[i + 1].puntos }}</span>
                     }
-                    <div class="barra-puntos rounded-b-md max-h-8"
-                        [style.height]="getBarraHeight(jugador.puntuacionJornadas[i + 1].puntos)">
-                    </div>
                     @if (jugador.puntuacionJornadas[i + 1].puntos == null) {
-                        <div class="barra-puntos h-1 max-h-8 bg-orange-800 rounded-b-md"></div>
+                    <div class="barra-puntos h-1 max-h-8 bg-orange-800 rounded-b-md"></div>
                     }
-                    @else if (jugador.puntuacionJornadas[i + 1].puntos <= 0 ) {
-                        <div class="barra-puntos h-1 max-h-8 bg-red-800 rounded-b-md"></div>
-                    } @else if (jugador.puntuacionJornadas[i + 1].puntos && jugador.puntuacionJornadas[i + 1].puntos <= 2) {
-                        <div class="barra-puntos h-2 max-h-8 bg-green-800 rounded-b-md">
-                        </div>
-                    } @else if (jugador.puntuacionJornadas[i + 1].puntos && jugador.puntuacionJornadas[i + 1].puntos <= 4) {
-                        <div class="barra-puntos h-3 max-h-8 bg-green-800 rounded-b-md">
-                        </div>
-                    } @else if (jugador.puntuacionJornadas[i + 1].puntos && jugador.puntuacionJornadas[i + 1].puntos <= 6) {
-                        <div class="barra-puntos h-4 max-h-8 bg-green-800 rounded-b-md">
-                        </div>
-                    } @else if (jugador.puntuacionJornadas[i + 1].puntos && jugador.puntuacionJornadas[i + 1].puntos <= 8) {
-                        <div class="barra-puntos h-5 max-h-8 bg-green-800 rounded-b-md">
-                        </div>
-                    } @else if (jugador.puntuacionJornadas[i + 1].puntos > 8 && jugador.puntuacionJornadas[i + 1].puntos <= 10) {
-                        <div class="barra-puntos h-6 max-h-8 bg-green-800 rounded-b-md">
-                        </div>
-                    } @else if (jugador.puntuacionJornadas[i + 1].puntos > 10 && jugador.puntuacionJornadas[i + 1].puntos <= 12) {
-                        <div class="barra-puntos h-7 max-h-8 bg-green-800 rounded-b-md">
-                        </div>
-                    } @else if (jugador.puntuacionJornadas[i + 1].puntos > 12) {
-                        <div class="barra-puntos h-8 max-h-8 bg-green-800 rounded-b-md">
-                        </div>
-                    }
+                    @else if (jugador.puntuacionJornadas[i + 1].puntos <= 0 ) { <div
+                        class="barra-puntos h-1 max-h-8 bg-red-800 rounded-b-md">
                 </div>
-            </a>
+                } @else if (jugador.puntuacionJornadas[i + 1].puntos && jugador.puntuacionJornadas[i + 1].puntos <= 2) {
+                    <div class="barra-puntos h-2 max-h-8 bg-green-800 rounded-b-md">
         </div>
+        } @else if (jugador.puntuacionJornadas[i + 1].puntos && jugador.puntuacionJornadas[i + 1].puntos <= 4) { <div
+            class="barra-puntos h-3 max-h-8 bg-green-800 rounded-b-md">
     </div>
+    } @else if (jugador.puntuacionJornadas[i + 1].puntos && jugador.puntuacionJornadas[i + 1].puntos <= 6) { <div
+        class="barra-puntos h-4 max-h-8 bg-green-800 rounded-b-md">
 </div>
+} @else if (jugador.puntuacionJornadas[i + 1].puntos && jugador.puntuacionJornadas[i + 1].puntos <= 8) { <div
+    class="barra-puntos h-5 max-h-8 bg-green-800 rounded-b-md">
+    </div>
+    } @else if (jugador.puntuacionJornadas[i + 1].puntos > 8 && jugador.puntuacionJornadas[i + 1].puntos <= 10) { <div
+        class="barra-puntos h-6 max-h-8 bg-green-800 rounded-b-md">
+        </div>
+        } @else if (jugador.puntuacionJornadas[i + 1].puntos > 10 && jugador.puntuacionJornadas[i + 1].puntos <= 12) {
+            <div class="barra-puntos h-7 max-h-8 bg-green-800 rounded-b-md">
+            </div>
+            } @else if (jugador.puntuacionJornadas[i + 1].puntos > 12) {
+            <div class="barra-puntos h-8 max-h-8 bg-green-800 rounded-b-md">
+            </div>
+            }
+            </div>
+            </a>
+            </div>
+            </div>
+            <div class="w-full mt-3 mb-1">
+                <div class="bg-gray-800 w-full text-center px-2 pt-2 rounded-t-md">
+                    <h1 class="text-white text-sm">Puntuación Jornada {{ jornadaActual }}</h1>
+                </div>
+                <ul class="w-full divide-y bg-gray-800 divide-gray-700 p-3 rounded-b-md">
+                    <li class="pb-2">
+                        <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm truncate text-white">
+                                    Estadística
+                                </p>
+                            </div>
+                            <div class="inline-flex items-center text-sm text-white">
+                                Puntos
+                            </div>
+                        </div>
+                    </li>
+                    <li class="py-2">
+                        <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm truncate text-white">
+                                    Crónico
+                                </p>
+                            </div>
+                            @if (puntuaciones[jornadaActual].puntosXCronico == 0) {
+                                <div class="inline-flex items-center text-orange-500">
+                                    {{ puntuaciones[jornadaActual].puntosXCronico }}
+                                </div>
+                            } @else if (puntuaciones[jornadaActual].puntosXCronico < 0) {
+                                <div class="inline-flex items-center text-red-500">
+                                    {{ puntuaciones[jornadaActual].puntosXCronico }}
+                                </div>
+                            } @else if (puntuaciones[jornadaActual].puntosXCronico > 0) {
+                                <div class="inline-flex items-center text-green-500">
+                                    {{ puntuaciones[jornadaActual].puntosXCronico }}
+                                </div>
+                            }
+                        </div>
+                    </li>
+                    <li class="py-2">
+                        <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm truncate text-white">
+                                    Minutos Jugados
+                                </p>
+                            </div>
+                            @if (puntuaciones[jornadaActual].puntosXMinJugados == 0) {
+                                <div class="inline-flex items-center text-orange-500">
+                                    {{ puntuaciones[jornadaActual].puntosXMinJugados }}
+                                </div>
+                            } @else if (puntuaciones[jornadaActual].puntosXMinJugados < 0) {
+                                <div class="inline-flex items-center text-red-500">
+                                    {{ puntuaciones[jornadaActual].puntosXMinJugados }}
+                                </div>
+                            } @else if (puntuaciones[jornadaActual].puntosXMinJugados > 0) {
+                                <div class="inline-flex items-center text-green-500">
+                                    {{ puntuaciones[jornadaActual].puntosXMinJugados }}
+                                </div>
+                            }
+                        </div>
+                    </li>
+                    <li class="py-2">
+                        <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm truncate text-white">
+                                    Goles
+                                </p>
+                            </div>
+                            @if (puntuaciones[jornadaActual].puntosXGoles == 0) {
+                                <div class="inline-flex items-center text-orange-500">
+                                    {{ puntuaciones[jornadaActual].puntosXGoles }}
+                                </div>
+                            } @else if (puntuaciones[jornadaActual].puntosXGoles < 0) {
+                                <div class="inline-flex items-center text-red-500">
+                                    {{ puntuaciones[jornadaActual].puntosXGoles }}
+                                </div>
+                            } @else if (puntuaciones[jornadaActual].puntosXGoles > 0) {
+                                <div class="inline-flex items-center text-green-500">
+                                    {{ puntuaciones[jornadaActual].puntosXGoles }}
+                                </div>
+                            }
+                        </div>
+                    </li>
+                    <li class="pt-2 pb-0">
+                        <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm truncate text-white">
+                                    Asistencias
+                                </p>
+                            </div>
+                            @if (puntuaciones[jornadaActual].puntosXAsistencias == 0) {
+                                <div class="inline-flex items-center text-orange-500">
+                                    {{ puntuaciones[jornadaActual].puntosXAsistencias }}
+                                </div>
+                            } @else if (puntuaciones[jornadaActual].puntosXAsistencias < 0) {
+                                <div class="inline-flex items-center text-red-500">
+                                    {{ puntuaciones[jornadaActual].puntosXAsistencias }}
+                                </div>
+                            } @else if (puntuaciones[jornadaActual].puntosXAsistencias > 0) {
+                                <div class="inline-flex items-center text-green-500">
+                                    {{ puntuaciones[jornadaActual].puntosXAsistencias }}
+                                </div>
+                            }
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </div>

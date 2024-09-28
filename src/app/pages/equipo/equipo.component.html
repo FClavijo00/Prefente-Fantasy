@@ -3,9 +3,9 @@
         <div class="col-md-12">
             <tabset [justified]="true">
                 <tab heading="Alineación">
-                    <div class="flex justify-center bg-gray-800 items-center p-4">
-                        <div class="flex flex-wrap">
-                            <div class="col-8">
+                    <div class="bg-gray-800 items-center m-4">
+                        <div class="flex flex-wrap justify-center">
+                            <div class="col-6">
                                 <div class="relative">
                                     <img class="border-gray-800 rounded-lg shadow img-campo-futbol"
                                         src="assets/otros/campo-futbol-2.jpeg" alt="" />
@@ -274,7 +274,35 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-4"></div>
+                            <div class="col-4 pl-3">
+                                <div class="card bg-gray-900 shadow">
+                                    <div class="card-header border-gray-700 text-center">
+                                        <h1 class="text-white font-medium">Banquillo</h1>
+                                    </div>
+                                    <div class="card-body flex flex-wrap flex-row">
+                                        <div class="col-6 flex justify-center mb-2 cursor-pointer" *ngFor="let suplente of banquillo">
+                                            <div class="w-20 h-24 bg-gray-800"
+                                                (click)="verJugador(modalJugador, suplente)">
+                                                <div class="relative overflow-hidden ">
+                                                    <img src="{{ suplente.urlImagen }}"
+                                                        class="img-jugador p-1 rounded-xl" />
+                                                    <img src="{{ suplente.urlEscudo }}" class="z-0 escudo-jugador" />
+                                                </div>
+                                                <div class="flex justify-center bg-gray-300">
+                                                    <span
+                                                        class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                                                        @if (suplente.sobrenombre) {
+                                                        {{ suplente.sobrenombre }}
+                                                        } @else {
+                                                        {{ suplente.nombre }}
+                                                        }
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </tab>
@@ -363,14 +391,16 @@
                                         @if (jugador.posicionInicial == 'POR') {
                                         <div class="jugador-portero w-20 h-24 bg-gray-800"
                                             (click)="verJugador(modalJugador, jugador)">
-                                            @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'POR') {
+                                            @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 &&
+                                            jugador.posicion == 'POR') {
                                             <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
                                                 style="clip-path: polygon(0 0, 50% 0, 0 100%)">
                                                 <span class="text-white absolute top-0 left-2">
                                                     {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
                                                 </span>
                                             </div>
-                                            } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='POR' ) { <div
+                                            } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 &&
+                                                jugador.posicion=='POR' ) { <div
                                                 class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
                                                 style="clip-path: polygon(0 0, 50% 0, 0 100%)">
                                                 <span class="text-white absolute top-0 left-2">
@@ -403,14 +433,16 @@
                                     } @if (jugador.posicionInicial == 'LD') {
                                     <div class="jugador-lateral-der form-4-3-3 w-20 h-24 bg-gray-800"
                                         (click)="verJugador(modalJugador, jugador)">
-                                        @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'DEF') {
+                                        @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion ==
+                                        'DEF') {
                                         <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
                                             style="clip-path: polygon(0 0, 50% 0, 0 100%)">
                                             <span class="text-white absolute top-0 left-2">
                                                 {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
                                             </span>
                                         </div>
-                                        } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='DEF' ) { <div
+                                        } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 &&
+                                            jugador.posicion=='DEF' ) { <div
                                             class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
                                             style="clip-path: polygon(0 0, 50% 0, 0 100%)">
                                             <span class="text-white absolute top-0 left-2">
@@ -443,14 +475,16 @@
                                 } @if (jugador.posicionInicial == 'CEND') {
                                 <div class="jugador-central-der form-4-3-3 w-20 h-24 bg-gray-800"
                                     (click)="verJugador(modalJugador, jugador)">
-                                    @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'DEF') {
+                                    @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion ==
+                                    'DEF') {
                                     <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
                                         style="clip-path: polygon(0 0, 50% 0, 0 100%)">
                                         <span class="text-white absolute top-0 left-2">
                                             {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
                                         </span>
                                     </div>
-                                    } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='DEF' ) { <div
+                                    } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 &&
+                                        jugador.posicion=='DEF' ) { <div
                                         class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
                                         style="clip-path: polygon(0 0, 50% 0, 0 100%)">
                                         <span class="text-white absolute top-0 left-2">
@@ -482,14 +516,16 @@
                             } @if (jugador.posicionInicial == 'CENI') {
                             <div class="jugador-central-izq form-4-3-3 w-20 h-24 bg-gray-800"
                                 (click)="verJugador(modalJugador, jugador)">
-                                @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'DEF') {
+                                @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'DEF')
+                                {
                                 <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
                                     style="clip-path: polygon(0 0, 50% 0, 0 100%)">
                                     <span class="text-white absolute top-0 left-2">
                                         {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
                                     </span>
                                 </div>
-                                } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='DEF' ) { <div
+                                } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 &&
+                                    jugador.posicion=='DEF' ) { <div
                                     class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
                                     style="clip-path: polygon(0 0, 50% 0, 0 100%)">
                                     <span class="text-white absolute top-0 left-2">
@@ -528,7 +564,8 @@
                                     {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
                                 </span>
                             </div>
-                            } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='DEF' ) { <div
+                            } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='DEF'
+                                ) { <div
                                 class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
                                 style="clip-path: polygon(0 0, 50% 0, 0 100%)">
                                 <span class="text-white absolute top-0 left-2">
@@ -568,7 +605,8 @@
                                 {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
                             </span>
                         </div>
-                        } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='MED' ) { <div
+                        } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='MED' ) {
+                            <div
                             class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
                             style="clip-path: polygon(0 0, 50% 0, 0 100%)">
                             <span class="text-white absolute top-0 left-2">
@@ -601,199 +639,199 @@
         @if (jugador.posicionInicial == 'MEDI') {
         <div class="jugador-mc-izq form-4-3-3 w-20 h-24 bg-gray-800" (click)="verJugador(modalJugador, jugador)">
             @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'MED') {
-                <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
-                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
-                    <span class="text-white absolute top-0 left-2">
-                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
-                    </span>
-                </div>
-                } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion == 'MED') {
-                <div class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
-                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
-                    <span class="text-white absolute top-0 left-2">
-                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
-                    </span>
-                </div>
-                } @else if (jugador.posicion != 'MED') {
-                    <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
-                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
-                    <span class="text-white absolute top-0 left-2">
-                        0
-                    </span>
-                </div>
-                }
-            <div>
-                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
-                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
-            </div>
-            <div class="flex justify-center bg-gray-300">
-                <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
-                    @if (jugador.sobrenombre) {
-                    {{ jugador.sobrenombre }}
-                    } @else {
-                    {{ jugador.nombre }}
-                    }
+            <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                <span class="text-white absolute top-0 left-2">
+                    {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
                 </span>
             </div>
-        </div>
-        }
-        @if (jugador.posicionInicial == 'MCO') {
-        <div class="jugador-mco form-4-3-3 w-20 h-24 bg-gray-800" (click)="verJugador(modalJugador, jugador)">
-            @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'MED') {
-                <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
-                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
-                    <span class="text-white absolute top-0 left-2">
-                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
-                    </span>
-                </div>
-                } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion == 'MED') {
-                <div class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
-                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
-                    <span class="text-white absolute top-0 left-2">
-                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
-                    </span>
-                </div>
-                } @else if (jugador.posicion != 'MED') {
-                    <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
-                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
-                    <span class="text-white absolute top-0 left-2">
-                        0
-                    </span>
-                </div>
-                }
-            <div>
-                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
-                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
-            </div>
-            <div class="flex justify-center bg-gray-300">
-                <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
-                    @if (jugador.sobrenombre) {
-                    {{ jugador.sobrenombre }}
-                    } @else {
-                    {{ jugador.nombre }}
-                    }
+            } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='MED' ) { <div
+                class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+                style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+                <span class="text-white absolute top-0 left-2">
+                    {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
                 </span>
-            </div>
+        </div>
+        } @else if (jugador.posicion != 'MED') {
+        <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+            style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+            <span class="text-white absolute top-0 left-2">
+                0
+            </span>
         </div>
         }
-        @if (jugador.posicionInicial == 'EXTD') {
-        <div class="jugador-ext-der form-4-3-3 w-20 h-24 bg-gray-800" (click)="verJugador(modalJugador, jugador)">
-            @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'DEL') {
-                <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
-                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
-                    <span class="text-white absolute top-0 left-2">
-                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
-                    </span>
-                </div>
-                } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion == 'DEL') {
-                <div class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
-                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
-                    <span class="text-white absolute top-0 left-2">
-                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
-                    </span>
-                </div>
-                } @else if (jugador.posicion != 'DEL') {
-                    <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
-                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
-                    <span class="text-white absolute top-0 left-2">
-                        0
-                    </span>
-                </div>
+        <div>
+            <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+            <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+        </div>
+        <div class="flex justify-center bg-gray-300">
+            <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+                @if (jugador.sobrenombre) {
+                {{ jugador.sobrenombre }}
+                } @else {
+                {{ jugador.nombre }}
                 }
-            <div>
-                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
-                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
-            </div>
-            <div class="flex justify-center bg-gray-300">
-                <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
-                    @if (jugador.sobrenombre) {
-                    {{ jugador.sobrenombre }}
-                    } @else {
-                    {{ jugador.nombre }}
-                    }
-                </span>
-            </div>
+            </span>
         </div>
-        }
-        @if (jugador.posicionInicial == 'EXTI') {
-        <div class="jugador-ext-izq form-4-3-3 w-20 h-24 bg-gray-800" (click)="verJugador(modalJugador, jugador)">
-            @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'DEL') {
-                <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
-                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
-                    <span class="text-white absolute top-0 left-2">
-                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
-                    </span>
-                </div>
-                } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion == 'DEL') {
-                <div class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
-                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
-                    <span class="text-white absolute top-0 left-2">
-                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
-                    </span>
-                </div>
-                } @else if (jugador.posicion != 'DEL') {
-                    <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
-                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
-                    <span class="text-white absolute top-0 left-2">
-                        0
-                    </span>
-                </div>
-                }
-            <div>
-                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
-                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
-            </div>
-            <div class="flex justify-center bg-gray-300">
-                <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
-                    @if (jugador.sobrenombre) {
-                    {{ jugador.sobrenombre }}
-                    } @else {
-                    {{ jugador.nombre }}
-                    }
-                </span>
-            </div>
-        </div>
-        }
-        @if (jugador.posicionInicial == 'DC') {
-        <div class="jugador-del-centro form-4-3-3 w-20 h-24 bg-gray-800" (click)="verJugador(modalJugador, jugador)">
-            @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'DEL') {
-                <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
-                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
-                    <span class="text-white absolute top-0 left-2">
-                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
-                    </span>
-                </div>
-                } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion == 'DEL') {
-                <div class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
-                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
-                    <span class="text-white absolute top-0 left-2">
-                        {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
-                    </span>
-                </div>
-                } @else if (jugador.posicion != 'DEL') {
-                    <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
-                    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
-                    <span class="text-white absolute top-0 left-2">
-                        0
-                    </span>
-                </div>
-                }
-            <div>
-                <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
-                <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
-            </div>
-            <div class="flex justify-center bg-gray-300">
-                <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
-                    @if (jugador.sobrenombre) {
-                    {{ jugador.sobrenombre }}
-                    } @else {
-                    {{ jugador.nombre }}
-                    }
-                </span>
-            </div>
-        </div>
-        }
     </div>
+    }
+    @if (jugador.posicionInicial == 'MCO') {
+    <div class="jugador-mco form-4-3-3 w-20 h-24 bg-gray-800" (click)="verJugador(modalJugador, jugador)">
+        @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'MED') {
+        <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+            style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+            <span class="text-white absolute top-0 left-2">
+                {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+            </span>
+        </div>
+        } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='MED' ) { <div
+            class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+            style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+            <span class="text-white absolute top-0 left-2">
+                {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+            </span>
+    </div>
+    } @else if (jugador.posicion != 'MED') {
+    <div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+        style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+        <span class="text-white absolute top-0 left-2">
+            0
+        </span>
+    </div>
+    }
+    <div>
+        <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+        <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+    </div>
+    <div class="flex justify-center bg-gray-300">
+        <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+            @if (jugador.sobrenombre) {
+            {{ jugador.sobrenombre }}
+            } @else {
+            {{ jugador.nombre }}
+            }
+        </span>
+    </div>
+</div>
+}
+@if (jugador.posicionInicial == 'EXTD') {
+<div class="jugador-ext-der form-4-3-3 w-20 h-24 bg-gray-800" (click)="verJugador(modalJugador, jugador)">
+    @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'DEL') {
+    <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+        style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+        <span class="text-white absolute top-0 left-2">
+            {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+        </span>
+    </div>
+    } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='DEL' ) { <div
+        class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+        style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+        <span class="text-white absolute top-0 left-2">
+            {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+        </span>
+</div>
+} @else if (jugador.posicion != 'DEL') {
+<div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+    <span class="text-white absolute top-0 left-2">
+        0
+    </span>
+</div>
+}
+<div>
+    <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+    <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+</div>
+<div class="flex justify-center bg-gray-300">
+    <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+        @if (jugador.sobrenombre) {
+        {{ jugador.sobrenombre }}
+        } @else {
+        {{ jugador.nombre }}
+        }
+    </span>
+</div>
+</div>
+}
+@if (jugador.posicionInicial == 'EXTI') {
+<div class="jugador-ext-izq form-4-3-3 w-20 h-24 bg-gray-800" (click)="verJugador(modalJugador, jugador)">
+    @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'DEL') {
+    <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+        style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+        <span class="text-white absolute top-0 left-2">
+            {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+        </span>
+    </div>
+    } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='DEL' ) { <div
+        class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+        style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+        <span class="text-white absolute top-0 left-2">
+            {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+        </span>
+</div>
+} @else if (jugador.posicion != 'DEL') {
+<div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+    <span class="text-white absolute top-0 left-2">
+        0
+    </span>
+</div>
+}
+<div>
+    <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+    <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+</div>
+<div class="flex justify-center bg-gray-300">
+    <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+        @if (jugador.sobrenombre) {
+        {{ jugador.sobrenombre }}
+        } @else {
+        {{ jugador.nombre }}
+        }
+    </span>
+</div>
+</div>
+}
+@if (jugador.posicionInicial == 'DC') {
+<div class="jugador-del-centro form-4-3-3 w-20 h-24 bg-gray-800" (click)="verJugador(modalJugador, jugador)">
+    @if (jugador.puntuacionJornadas[jornadaActual].puntos > 0 && jugador.posicion == 'DEL') {
+    <div class="bg-green-800 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+        style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+        <span class="text-white absolute top-0 left-2">
+            {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+        </span>
+    </div>
+    } @else if (jugador.puntuacionJornadas[jornadaActual].puntos <= 0 && jugador.posicion=='DEL' ) { <div
+        class="bg-red-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+        style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+        <span class="text-white absolute top-0 left-2">
+            {{ jugador.puntuacionJornadas[jornadaActual].puntos }}
+        </span>
+</div>
+} @else if (jugador.posicion != 'DEL') {
+<div class="bg-orange-700 absolute top-0 left-0 w-full h-10 flex justify-center items-center -z-0"
+    style="clip-path: polygon(0 0, 50% 0, 0 100%)">
+    <span class="text-white absolute top-0 left-2">
+        0
+    </span>
+</div>
+}
+<div>
+    <img src="{{ jugador.urlImagen }}" class="img-jugador p-1 rounded-xl" />
+    <img src="{{ jugador.urlEscudo }}" class="escudo-jugador" />
+</div>
+<div class="flex justify-center bg-gray-300">
+    <span class="text-xs text-gray-900 text-ellipsis whitespace-nowrap overflow-hidden">
+        @if (jugador.sobrenombre) {
+        {{ jugador.sobrenombre }}
+        } @else {
+        {{ jugador.nombre }}
+        }
+    </span>
+</div>
+</div>
+}
+</div>
 </div>
 </div>
 </div>
@@ -806,5 +844,5 @@
 </div>
 
 <ng-template #modalJugador let-modal let-c="close" let-d="dismiss">
-    <perfil-jugador [modal]="modal" [jugador]="jugadorSeleccionado" (cerrarModal)="d('Cross click')"></perfil-jugador>
+    <perfil-jugador [modal]="modal" [jugador]="jugadorSeleccionado" [puntuaciones]="puntuacionesJugador" (cerrarModal)="d('Cross click')"></perfil-jugador>
 </ng-template>
